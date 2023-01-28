@@ -1,6 +1,6 @@
 import { model, models, Model, Schema } from "mongoose";
 import type { UserRegProfile } from "@/lib/types/UserReg";
-import { EMAIL_REGEX } from "@/lib/helpers/constants";
+import { PHONE_REGEX, EMAIL_REGEX } from "@/lib/helpers/constants";
 
 /**
  * @description This is the user schema
@@ -52,5 +52,5 @@ const userSchema = new Schema<UserRegProfile>({
  * @description
  * The model for the User collection.
  */
-const UserRegModel = models["userRegprofile"] as Model<UserRegProfile> || model<UserRegProfile>("userregprofile", userSchema);
+const UserModel = models["userRegprofile"] as Model<UserRegProfile> || model<UserRegProfile>("userregprofile", userSchema);
 export default UserRegModel;
