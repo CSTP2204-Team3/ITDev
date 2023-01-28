@@ -1,6 +1,6 @@
 import { model, models, Model, Schema } from "mongoose";
-import type { UserProfProfile } from "@/model/lib/types/UserProf";
-import { EMAIL_REGEX } from "@/model/lib/helpers/constants";
+import type { UserProfProfile } from "@/lib/types/UserProf";
+import { PHONE_REGEX, EMAIL_REGEX } from "@/lib/helpers/constants";
 
 /**
  * @description This is the user schema
@@ -44,6 +44,18 @@ const userSchema = new Schema<UserProfProfile>({
         },
         required: [true, "User email required"],
         unique: true,
+    },
+
+    // This is the phonenumber of the user
+    phoneNumber: {
+        type: String,
+        validate: {
+            validator: function (v: string) {
+                return PHONE_REGEX.test(v);
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
+        required: [true, "User phone number required"]
     },
 
     // This is the image/logo of the user

@@ -1,10 +1,10 @@
 import { ObjectId } from "mongodb";
-import { Review } from "@/model/lib/types/Review";
+import { Review } from "@/lib/types/Review";
 
 /**
  * Interface for creating a user
  */
-export interface UserProfProfile {
+export interface UserRegProfile {
 
 	// This is automatically added by mongodb
 	_id?: string | ObjectId;
