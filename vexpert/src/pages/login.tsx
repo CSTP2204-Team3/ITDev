@@ -4,8 +4,8 @@ export default function Login() {
       <div className="flex min-h-full bg-indigo-200 lg:px-[5rem]">
         <div className="relative hidden w-0 flex-1 lg:block">
           <div className="mt-[100px] p-8">
-            <h2 className="mt-6 font-bold tracking-tight text-gray-900 lg:text-3xl xl:text-5xl ">vExpert is an online resource where you can get advice from professionals in real time. </h2>
-            <h2 className="mt-6 font-bold tracking-tight text-gray-900 lg:text-3xl xl:text-6xl">Video chat with your expert now!</h2>
+            <h2 className="mt-6 font-bold tracking-tight lg:text-3xl xl:text-5xl ">vExpert is an online resource where you can get advice from professionals in real time. </h2>
+            <h2 className="mt-6 font-bold tracking-tight lg:text-3xl xl:text-6xl">Video chat with your expert now!</h2>
           </div>
         </div>
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">

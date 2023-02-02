@@ -1,0 +1,19 @@
+$text_color: #111827;
+
+.wrap {
+  display: flex;
+  background-color: #c7d2fe;
+  min-height: 100%;
+
+  @media (min-width: 1024px) {
+  }
+}
+
+.sign_in {
+  margin-top: 1.5rem;
+  color: $text_color;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
