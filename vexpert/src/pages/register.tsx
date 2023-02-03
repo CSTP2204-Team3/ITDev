@@ -1,24 +1,15 @@
-export default function Login() {
+import React from "react";
+
+export default function register() {
   return (
     <>
-      <div className="flex min-h-full bg-indigo-200 lg:px-[5rem]">
-        <div className="relative hidden w-0 flex-1 lg:block">
-          <div className="mt-[100px] p-8">
-            <h2 className="mt-6 font-bold tracking-tight lg:text-3xl xl:text-5xl ">
-              vExpert is an online resource where you can get advice from
-              professionals in real time.{" "}
-            </h2>
-            <h2 className="mt-6 font-bold tracking-tight lg:text-3xl xl:text-6xl">
-              Video chat with your expert now!
-            </h2>
-          </div>
-        </div>
+      <div className="flex justify-center min-h-full bg-indigo-200 lg:px-[5rem]">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <img className="h-12 w-auto" src="" alt="Vexpert Logo" />
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
-                Sign in to your account
+                Register your account!
               </h2>
             </div>
 
@@ -63,6 +54,25 @@ export default function Login() {
                     </div>
                   </div>
 
+                  <div className="space-y-1">
+                    <label
+                      htmlFor="password2"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Re-enter Password
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="password2"
+                        name="password2"
+                        type="password2"
+                        autoComplete="current-password"
+                        required
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <input
@@ -81,21 +91,10 @@ export default function Login() {
 
                     <div className="text-sm">
                       <a
-                        href="#"
+                        href="/login"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        Forgot your password?
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-end">
-                    <div className="text-sm">
-                      <a
-                        href="/register"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Don't have an account?
+                        Already have account?
                       </a>
                     </div>
                   </div>
@@ -113,7 +112,7 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </div>
+    </div>
     </>
   );
 }
