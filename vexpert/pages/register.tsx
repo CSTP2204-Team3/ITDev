@@ -3,12 +3,12 @@ import React from "react";
 export default function register() {
   return (
     <>
-      <div className="flex justify-center min-h-full bg-indigo-200 lg:px-[5rem]">
+      <div className="flex justify-center min-h-full bg-indigo-900 lg:px-[5rem]">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <img className="h-12 w-auto" src="" alt="Vexpert Logo" />
-              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="mt-6 text-3xl text-slate-100 font-bold tracking-tight text-gray-900">
                 Register your account!
               </h2>
             </div>
@@ -19,7 +19,7 @@ export default function register() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-slate-100"
                     >
                       Email address
                     </label>
@@ -38,7 +38,7 @@ export default function register() {
                   <div className="space-y-1">
                     <label
                       htmlFor="password"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-slate-100"
                     >
                       Password
                     </label>
@@ -57,7 +57,7 @@ export default function register() {
                   <div className="space-y-1">
                     <label
                       htmlFor="password2"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-slate-100"
                     >
                       Re-enter Password
                     </label>
@@ -83,7 +83,7 @@ export default function register() {
                       />
                       <label
                         htmlFor="remember-me"
-                        className="ml-2 block text-sm text-gray-900"
+                        className="ml-2 block text-sm text-slate-100"
                       >
                         Remember me
                       </label>
@@ -92,7 +92,7 @@ export default function register() {
                     <div className="text-sm">
                       <a
                         href="/login"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="font-medium text-slate-100 hover:text-slate-1000"
                       >
                         Already have account?
                       </a>
@@ -102,7 +102,7 @@ export default function register() {
                   <div>
                     <button
                       type="submit"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-slate-100 shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Sign in
                     </button>

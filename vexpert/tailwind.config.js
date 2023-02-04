@@ -8,6 +8,8 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+
+
 	theme: {
 		extend: {},
 	},
@@ -16,5 +18,5 @@ module.exports = {
 		require( 'tailwindcss' ),
 		require( 'precss' ),
 		require( 'autoprefixer' )
-	]
+	] 
 }
