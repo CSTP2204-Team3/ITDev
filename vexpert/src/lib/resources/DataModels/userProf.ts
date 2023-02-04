@@ -6,7 +6,7 @@ import { EMAIL_REGEX } from "@/lib/helpers/constants";
  * @description This is the user schema
  * The full description of each property is referenced in the User interface
  */
-const userSchema = new Schema<UserProfProfile>({
+const userSchema = new Schema<UserProfProfile> ({
 
     // This is the username of the user
     userName: {
