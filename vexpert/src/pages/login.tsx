@@ -1,14 +1,14 @@
 export default function Login() {
   return (
     <>
-      <div className="flex min-h-full bg-indigo-200 lg:px-[5rem]">
+      <div className="flex min-h-full bg-indigo-900 lg:px-[5rem]">
         <div className="relative hidden w-0 flex-1 lg:block">
           <div className="mt-[100px] p-8">
-            <h2 className="mt-6 font-bold tracking-tight lg:text-3xl xl:text-5xl ">
+            <h2 className="mt-6 text-slate-100 font-bold tracking-tight lg:text-3xl xl:text-5xl ">
               vExpert is an online resource where you can get advice from
               professionals in real time.{" "}
             </h2>
-            <h2 className="mt-6 font-bold tracking-tight lg:text-3xl xl:text-6xl">
+            <h2 className="mt-6 text-slate-100 font-bold tracking-tight lg:text-3xl xl:text-6xl">
               Video chat with your expert now!
             </h2>
           </div>
@@ -17,7 +17,7 @@ export default function Login() {
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <img className="h-12 w-auto" src="" alt="Vexpert Logo" />
-              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="mt-6 text-slate-100 text-3xl font-bold tracking-tight text-slate-100">
                 Sign in to your account
               </h2>
             </div>
@@ -28,7 +28,7 @@ export default function Login() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-slate-100"
                     >
                       Email address
                     </label>
@@ -47,7 +47,7 @@ export default function Login() {
                   <div className="space-y-1">
                     <label
                       htmlFor="password"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-slate-100"
                     >
                       Password
                     </label>
@@ -69,11 +69,11 @@ export default function Login() {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 rounded border-gray-300 text-slate-100 focus:ring-indigo-500"
                       />
                       <label
                         htmlFor="remember-me"
-                        className="ml-2 block text-sm text-gray-900"
+                        className="ml-2 block text-sm text-slate-100"
                       >
                         Remember me
                       </label>
@@ -82,7 +82,7 @@ export default function Login() {
                     <div className="text-sm">
                       <a
                         href="#"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="font-medium text-slate-100 hover:text-slate-500"
                       >
                         Forgot your password?
                       </a>
@@ -93,7 +93,7 @@ export default function Login() {
                     <div className="text-sm">
                       <a
                         href="/register"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="font-medium text-slate-100 hover:text-slate-500"
                       >
                         Don't have an account?
                       </a>
@@ -103,7 +103,7 @@ export default function Login() {
                   <div>
                     <button
                       type="submit"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-slate-100 shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Sign in
                     </button>
