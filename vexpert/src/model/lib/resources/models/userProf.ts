@@ -1,18 +1,18 @@
 import { model, models, Model, Schema } from "mongoose";
-import type { UserRegProfile } from "@/lib/types/UserReg";
-import { EMAIL_REGEX } from "@/lib/helpers/constants";
+import type { UserProfProfile } from "@/lib/types/UserProf";
+import { PHONE_REGEX, EMAIL_REGEX } from "@/lib/helpers/constants";
 
 /**
  * @description This is the user schema
  * The full description of each property is referenced in the User interface
  */
-const userSchema = new Schema<UserRegProfile>({
+const userSchema = new Schema<UserProfProfile>({
 
     // This is the username of the user
     userName: {
         type: String,
         min: [8, "Username should be at least 8 characters"],
-        max: [20, "Username should be max of 30 characters"],
+        max: [30, "Username should be max of 30 characters"],
         required: [true, "Username is required"],
         unique: true
     },
@@ -46,11 +46,35 @@ const userSchema = new Schema<UserRegProfile>({
         unique: true,
     },
 
+    // This is the phonenumber of the user
+    phoneNumber: {
+        type: String,
+        validate: {
+            validator: function (v: string) {
+                return PHONE_REGEX.test(v);
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
+        required: [true, "User phone number required"]
+    },
+
+    // This is the image/logo of the user
+    image: {
+        type: String,
+        required:[true, "Image is required"]
+    },
+
+    // This is where the reviews are contained or referenced
+    review: [{
+        type: String,
+        required: false,
+        default: []
+    }]
 });
 
 /**
  * @description
- * The model for the User collection.
+ * The model for the Professional User collection.
  */
-const UserRegModel = models["userRegprofile"] as Model<UserRegProfile> || model<UserRegProfile>("userregprofile", userSchema);
-export default UserRegModel;
+const UserProfModel = models["userprofprofile"] as Model<UserProfProfile> || model<UserProfProfile>("userprofprofile", userSchema);
+export default UserProfModel;

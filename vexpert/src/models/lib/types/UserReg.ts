@@ -4,7 +4,7 @@ import { Review } from "@/lib/types/Review";
 /**
  * Interface for creating a user
  */
-export interface UserProfProfile {
+export interface UserRegProfile {
 
 	// This is automatically added by mongodb
 	_id?: string | ObjectId;
@@ -24,6 +24,4 @@ export interface UserProfProfile {
 	// This is the image/logo of the user
 	image: string;
 
-	// This is the matches that the user creates/joins
-	review: Review[];
 }
