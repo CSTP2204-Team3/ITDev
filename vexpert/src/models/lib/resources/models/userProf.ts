@@ -1,6 +1,6 @@
 import { model, models, Model, Schema } from "mongoose";
-import type { UserProfProfile } from "@/lib/types/UserProf";
-import { EMAIL_REGEX } from "@/lib/helpers/constants";
+import type { UserProfProfile } from "@/models/lib/types/UserProf";
+import { EMAIL_REGEX } from "@/models/lib/helpers/constants";
 
 /**
  * @description This is the user schema
@@ -65,4 +65,5 @@ const userSchema = new Schema<UserProfProfile>({
  * The model for the Professional User collection.
  */
 const UserProfModel = models["userprofprofile"] as Model<UserProfProfile> || model<UserProfProfile>("userprofprofile", userSchema);
+
 export default UserProfModel;

@@ -1,6 +1,5 @@
 import { model, models, Model, Schema } from "mongoose";
-import type { UserRegProfile } from "@/lib/types/UserReg";
-import { EMAIL_REGEX } from "@/lib/helpers/constants";
+import type { UserRegProfile } from "@/models/lib/types/UserReg";
 
 /**
  * @description This is the user schema
@@ -36,12 +35,6 @@ const userSchema = new Schema<UserRegProfile>({
     // This is the email of the user
     email: {
         type: String,
-        validate: {
-            validator: function (v: string) {
-                return EMAIL_REGEX.test(v);
-            },
-            message: props => `${props.value} is not a valid email!`
-        },
         required: [true, "User email required"],
         unique: true,
     },
