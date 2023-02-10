@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 
-
+// index page
 .landingPage {
     max-width: 95rem;
     padding: 0 1rem;
     margin: 3rem auto 6rem;
 }
   
+// profile page  
 .background {   
     width: 100vw;
     height: 100vh;
@@ -20,6 +21,7 @@ body {
     margin: 0;
 }
 
+// profile page
 .profileBox {       
     background: #FFFFFF;
     padding: 50px;

@@ -38,6 +38,7 @@ export default function Home() {
       <h1 className="mt-6 text-3xl font-bold tracking-tight">
         HAIR SPECIALISTS
       </h1>
+      
       <br></br>
 
       <h2 className="mt-6 text-2xl font-bold tracking-tight">
