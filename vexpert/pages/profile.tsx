@@ -49,8 +49,7 @@ export default function Profile() {
   };
 
   return (
-    <>
-    
+    <>    
 
     <div className="background">
 
@@ -110,7 +109,6 @@ export default function Profile() {
             >
               Save
           </Button>
-
 
         </Box>
         
