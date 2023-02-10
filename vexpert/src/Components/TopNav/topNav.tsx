@@ -11,7 +11,7 @@ export default function TopNav(){
             </Link>
             {/* Links list */}
             <Link href='/' className={styles.links}>Categories</Link>
-            <Link href='/' className={styles.links}>Profile</Link>
+            <Link href='/profile' className={styles.links}>Profile</Link>
             <Link href='/login' className={styles.links}>Appointments</Link>
             {/* Search Icon */}
             <div className={styles.lastElement}>

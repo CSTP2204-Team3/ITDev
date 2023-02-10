@@ -1,6 +1,11 @@
+import Image from 'next/image'
+import TopNav from '@/Components/TopNav/topNav'
+
 export default function Login() {
   return (
     <>
+    <TopNav/>
+
       <div className="flex min-h-full bg-indigo-900 lg:px-[5rem]">
         <div className="relative hidden w-0 flex-1 lg:block">
           <div className="mt-[100px] p-8">
@@ -16,7 +21,13 @@ export default function Login() {
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img className="h-12 w-auto" src="" alt="Vexpert Logo" />
+              <Image
+                className="h-12 w-auto"
+                width={200}
+                height={100}
+                src="/logo.jpg"
+                alt="Vexpert"
+              />             
               <h2 className="mt-6 text-slate-100 text-3xl font-bold tracking-tight text-slate-100">
                 Sign in to your account
               </h2>

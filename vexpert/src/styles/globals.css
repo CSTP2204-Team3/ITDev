@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.landingPage {
+    max-width: 95rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+}
+  
+.background {   
+    width: 100vw;
+    height: 100vh;
+    background: #C7E0ED;
+}
+  
+body {
+    margin: 0;
+}
+
+.profileBox {       
+    background: #FFFFFF;
+    padding: 50px;
+}
