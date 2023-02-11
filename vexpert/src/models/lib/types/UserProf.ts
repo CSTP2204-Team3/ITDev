@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { Review } from "@/lib/types/Review";
+import { Review } from "@/models/lib/types/Review";
 
 /**
  * Interface for creating a user

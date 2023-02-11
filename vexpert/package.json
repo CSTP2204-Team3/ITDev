@@ -16,10 +16,16 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+<<<<<<< HEAD
     "cloudinary": "^1.33.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
     "mongodb": "^5.0.0",
+=======
+    "dotenv": "^16.0.3",
+    "eslint": "8.32.0",
+    "eslint-config-next": "13.1.5",
+>>>>>>> 2348c2d26b544b36c529736530acf3a9d9fcd2f2
     "mongoose": "^6.9.0",
     "next": "13.1.5",
     "react": "18.2.0",
