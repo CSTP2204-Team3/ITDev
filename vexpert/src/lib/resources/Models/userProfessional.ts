@@ -5,3 +5,4 @@ interface profUser extends User {
     reviews: String
 }
 
+export default profUser
