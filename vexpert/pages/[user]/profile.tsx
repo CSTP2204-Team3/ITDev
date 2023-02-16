@@ -8,7 +8,7 @@ export default function profile() {
 
   return (
     <>
-      <ProfessionalUserPage />
+      <ProfessionalUserPage userBio={""} userID={""} userName={""} userEmail={"temp@gmail.com"} userTags={[]} userPortfolio={[]} userProfile={"vexpert/src/Components/profile/duck.jpeg"}  />
     </>
   );
 }
