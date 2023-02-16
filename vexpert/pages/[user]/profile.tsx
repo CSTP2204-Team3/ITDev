@@ -8,7 +8,7 @@ export default function profile() {
 
   return (
     <>
-      <ProfessionalUserPage userBio={""} userID={""} userName={""} userEmail={"temp@gmail.com"} userTags={[]} userPortfolio={[]} userProfile={"vexpert/src/Components/profile/duck.jpeg"}  />
+      <ProfessionalUserPage userBio={""} userID={""} userName={""} userEmail={"temp@gmail.com"} userTags={[]} userPortfolio={["/duck.jpeg", "/duck.jpeg", "/duck.jpeg", "/duck.jpeg"]} userProfile={"/duck.jpeg"}  />
     </>
   );
 }

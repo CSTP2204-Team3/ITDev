@@ -1,11 +1,9 @@
 import TopNav from "@/Components/TopNav/topNav"
 import { useState } from "react"
-import profUser from "@/lib/resources/Models/userProfessional"
 import styles from "./professional.module.sass"
 import React from "react"
 import { ImageList, ImageListItem } from "@mui/material";
 import Image from "next/image";
-import { ReactNode } from "react";
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -27,7 +25,7 @@ interface Props {
     userTags: String[],
     userBio: String;
     userPortfolio: String[],
-    userProfile: String;
+    userProfile: string;
 };
 
 //this is the style for the modal popup we have
@@ -48,10 +46,6 @@ export default function ProfessionalUserPage( props: Props){
     let [name, setName] = useState("")
     let [about, setAbout] = useState("This is the about section, write a short bio to introduce yourself to your customers!")
     let email: String = props.userEmail
-    let [tempTag1, setTempTag1] = useState("")
-    let [tempTag2, setTempTag2] = useState("")
-    let [tempTag3, setTempTag3] = useState("")
-    let [chipNames, setChipNames] = useState([""])
     const [checked, setChecked] = React.useState([""]);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -69,14 +63,7 @@ export default function ProfessionalUserPage( props: Props){
     
         setChecked(newChecked);
       };
-    
 
-    // function handleAdd() {
-    //     let stringToAdd = tempTag1
-    //     if (chipNames.length > 3){
-    //         chipNames.push(stringToAdd)
-    //     }
-    // }
 
     function uploadPortfolio(){
         //TODO
@@ -150,7 +137,6 @@ export default function ProfessionalUserPage( props: Props){
                                 <List sx={{ width: '100%', maxWidth: 200, bgcolor: 'background.paper', fontWeight: 100, marginLeft: "10px", fontStyle: "normal" }}>
                                     {["Hair Styling", "Hair Cuts", "Hair Colour"].map((value) => {
                                         const labelId = `checkbox-list-label-${value}`;
-
                                         return (
                                             <ListItem
                                                 key={value}
@@ -172,7 +158,6 @@ export default function ProfessionalUserPage( props: Props){
                                         );
                                     })}
                                 </List>
-
                             </div>
 
                         </div>
@@ -180,17 +165,14 @@ export default function ProfessionalUserPage( props: Props){
                         <div className={ styles.pictureSection }>
                             <Image 
                             className={styles.circleImage}
-                            src="/duck.jpeg" 
+                            src={props.userProfile}
                             width={120}
                             height={120}
                             alt=""/>
                         </div>
                         
-
                     </div>
                     
-                    
-
                     {/* about section */}
                     <div className={ styles.aboutSection }>
                         <div>About: </div>
@@ -203,53 +185,16 @@ export default function ProfessionalUserPage( props: Props){
                         Portfolio <button className={styles.plusButton}> <AddAPhotoIcon fontSize="medium"/> </button>
                         <div className={styles.imageBar}>
                             <ImageList cols={6} rowHeight={164}>
-                                {/* We will render the images here */}
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                {/* <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <Image src="/duck.jpeg" height={120} width={120} alt="">
-
-                                    </Image>
-                                </ImageListItem> */}
-                                
+                                {
+                                    props.userPortfolio.map((value) => {
+                                        return (
+                                            <ImageListItem key={props.userPortfolio.indexOf(value)}>
+                                                <Image src={value.toString()} height={120} width={120} alt="">
+                                                </Image>
+                                            </ImageListItem>
+                                        )
+                                    })
+                                }
                             </ImageList>
                         </div>
                     </div>
