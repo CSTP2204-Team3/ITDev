@@ -5,23 +5,42 @@ import styles from "./professional.module.sass"
 import React from "react"
 import { ImageList, ImageListItem } from "@mui/material";
 import Image from "next/image";
+import { ReactNode } from "react";
 
+interface Props {
+    userID: string,
+    userName: String,
+    userEmail: String,
+    userTags: String[],
+    userBio: String;
+    userPortfolio: String[],
+    userProfile: String;
+};
 
-
-export default function ProfessionalUserPage(){
+export default function ProfessionalUserPage( props: Props){
     
     let [name, setName] = useState("")
     let [about, setAbout] = useState("This is my about section, where I can write a small bio to advertise my services")
     let email: String = "temp@gmail.com"
-    let [tempTag, setTempTag] = useState("")
+    let [tempTag1, setTempTag1] = useState("")
+    let [tempTag2, setTempTag2] = useState("")
+    let [tempTag3, setTempTag3] = useState("")
     let [chipNames, setChipNames] = useState([""])
     
 
     function handleAdd() {
-        let stringToAdd = tempTag
+        let stringToAdd = tempTag1
         if (chipNames.length > 3){
             chipNames.push(stringToAdd)
         }
+    }
+
+    function uploadPortfolio(){
+        //TODO
+    }
+
+    function save(){
+        //TODO
     }
 
     
@@ -36,7 +55,7 @@ export default function ProfessionalUserPage(){
                     {/* this div is here to space things nicely with flexbox */}
                     <div></div>
                     <button className={ styles.timeButton }>Time Availablity</button>
-                    <button className={ styles.saveButton } >Save</button>
+                    <button className={ styles.saveButton } onClick={ save } >Save</button>
                 </div>
                 {/* white container that will hold all the information we need */}
                 <div className={ styles.whiteContainer }>
@@ -52,7 +71,7 @@ export default function ProfessionalUserPage(){
                             <div> 
                                 {/* section for the email (this cannot be changed/edited) */}
                                 <label htmlFor="email">Email: </label>
-                                <text id="email" className={ styles.input }> { email } </text>
+                                <text id="email" className={ styles.email1input }> { email } </text>
                             </div>
 
                         </div>
@@ -70,8 +89,10 @@ export default function ProfessionalUserPage(){
                     {/* specialty tags */}
                     <div className={ styles.tagsSection }>
                         Tags: 
-                        <input className={ styles.input } type="text" id="newTag" name="newTag" placeholder="Add Tag" onChange={ e => setTempTag(e.target.value)} />
-                        {/* <button onClick={ handleAdd } className={ styles.saveButton }> Add Tag</button> */}
+                        <input className={ styles.tags1input } type="text" id="newTag" name="newTag" placeholder="Tag 1" onChange={ e => setTempTag1(e.target.value)} />
+                        <input className={ styles.input } type="text" id="newTag" name="newTag" placeholder="Tag 2" onChange={ e => setTempTag2(e.target.value)} />
+                        <input className={ styles.input } type="text" id="newTag" name="newTag" placeholder="Tag 3" onChange={ e => setTempTag3(e.target.value)} />
+
                     </div>
                     {/* about section */}
                     <div className={ styles.aboutSection }>
