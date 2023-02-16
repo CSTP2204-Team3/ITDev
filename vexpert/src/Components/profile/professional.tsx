@@ -56,13 +56,12 @@ export default function ProfessionalUserPage( props: Props){
         const newChecked = [...checked];
     
         if (currentIndex === -1) {
-          newChecked.push(value);
+            newChecked.push(value);
         } else {
-          newChecked.splice(currentIndex, 1);
+            newChecked.splice(currentIndex, 1);
         }
-    
         setChecked(newChecked);
-      };
+    };
 
 
     function uploadPortfolio(){
@@ -72,10 +71,6 @@ export default function ProfessionalUserPage( props: Props){
     function save(){
         //TODO
     }
-    function helpPopup(){
-
-    }
-
     
 
     return(
@@ -87,14 +82,14 @@ export default function ProfessionalUserPage( props: Props){
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Help Section
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    The tags determine which categories you will show up in. <br /> <br />
-                    The about section is where you can write a small bio about yourself. <br /><br />
-                    Add Portfolio pictures to show off your skills!
-                </Typography>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Help Section
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        The tags determine which categories you will show up in. <br /> <br />
+                        The about section is where you can write a small bio about yourself. <br /><br />
+                        Add Portfolio pictures to show off your skills!
+                    </Typography>
                 </Box>
             </Modal>
             <TopNav/>
@@ -186,10 +181,16 @@ export default function ProfessionalUserPage( props: Props){
                         <div className={styles.imageBar}>
                             <ImageList cols={6} rowHeight={164}>
                                 {
+                                    //for everything in the user portfolio list, we will map the data to an image list item
                                     props.userPortfolio.map((value) => {
+                                        {/* using the index of each item in our portfolio picture list as the key because we know that it is unique*/}
                                         return (
                                             <ImageListItem key={props.userPortfolio.indexOf(value)}>
-                                                <Image src={value.toString()} height={120} width={120} alt="">
+                                                {/**
+                                                 * Here we are setting the loading to "lazy", meaning it will let the page render before fully loading all the pictures
+                                                 * This is done so we can save time and render the page for the user faster
+                                                 */}
+                                                <Image src={value.toString()} height={120} width={120} alt="" loading="lazy">
                                                 </Image>
                                             </ImageListItem>
                                         )
