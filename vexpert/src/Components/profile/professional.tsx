@@ -1,9 +1,7 @@
 import TopNav from "@/Components/TopNav/topNav"
 import { useState } from "react"
 import profUser from "@/lib/resources/Models/userProfessional"
-
 import styles from "./professional.module.sass"
-import { styled } from '@mui/material/styles';
 import React from "react"
 import { ImageList, ImageListItem } from "@mui/material";
 import Image from "next/image";
@@ -11,16 +9,11 @@ import Image from "next/image";
 
 
 export default function ProfessionalUserPage(){
-
     
     let [name, setName] = useState("")
     let [about, setAbout] = useState("This is my about section, where I can write a small bio to advertise my services")
     let email: String = "temp@gmail.com"
-
-    
-
     let [tempTag, setTempTag] = useState("")
-
     let [chipNames, setChipNames] = useState([""])
     
 
