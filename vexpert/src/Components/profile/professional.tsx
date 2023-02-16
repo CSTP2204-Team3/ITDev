@@ -15,6 +15,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 
 interface Props {
@@ -27,16 +30,32 @@ interface Props {
     userProfile: String;
 };
 
+//this is the style for the modal popup we have
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '0.2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
 export default function ProfessionalUserPage( props: Props){
     
     let [name, setName] = useState("")
-    let [about, setAbout] = useState("This is my about section, where I can write a small bio to advertise my services")
+    let [about, setAbout] = useState("This is the about section, write a short bio to introduce yourself to your customers!")
     let email: String = props.userEmail
     let [tempTag1, setTempTag1] = useState("")
     let [tempTag2, setTempTag2] = useState("")
     let [tempTag3, setTempTag3] = useState("")
     let [chipNames, setChipNames] = useState([""])
     const [checked, setChecked] = React.useState([""]);
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const handleToggle = (value: string) => () => {
         const currentIndex = checked.indexOf(value);
@@ -67,13 +86,30 @@ export default function ProfessionalUserPage( props: Props){
         //TODO
     }
     function helpPopup(){
-        
+
     }
 
     
 
     return(
         <>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Help Section
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    The tags determine which categories you will show up in. <br /> <br />
+                    The about section is where you can write a small bio about yourself. <br /><br />
+                    Add Portfolio pictures to show off your skills!
+                </Typography>
+                </Box>
+            </Modal>
             <TopNav/>
             <div className={ styles.container }>
                 {/* this is the row ontop of the white container */}
@@ -83,7 +119,7 @@ export default function ProfessionalUserPage( props: Props){
                     <div></div>
                     <button className={ styles.timeButton }>Time Availablity</button>
                     <button className={ styles.saveButton } onClick={ save } >Save</button>
-                    <button className={ styles.questionButton } onClick={ helpPopup } > <HelpOutlineIcon /> </button>
+                    <button className={ styles.questionButton } onClick={ handleOpen } > <HelpOutlineIcon /> </button>
                 </div>
                 {/* white container that will hold all the information we need */}
                 <div className={ styles.whiteContainer }>
@@ -103,13 +139,15 @@ export default function ProfessionalUserPage( props: Props){
                             </div>
                             {/* specialty tags */}
                             <div className={ styles.tagsSection }>
+                                <div className={styles.tagsLabel}>
                                 Tags: 
+                                </div>
                                 {/* We can use this if we want to let the users manually type their own tags */}
                                 {/* <input className={ styles.tags1input } type="text" id="newTag" name="newTag" placeholder="Tag 1" onChange={ e => setTempTag1(e.target.value)} />
                                 <input className={ styles.input } type="text" id="newTag" name="newTag" placeholder="Tag 2" onChange={ e => setTempTag2(e.target.value)} />
                                 <input className={ styles.input } type="text" id="newTag" name="newTag" placeholder="Tag 3" onChange={ e => setTempTag3(e.target.value)} /> */}
                                 {/* Or we can use this if we want to make a selectable list */}
-                                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                                <List sx={{ width: '100%', maxWidth: 200, bgcolor: 'background.paper', fontWeight: 100, marginLeft: "10px", fontStyle: "normal" }}>
                                     {["Hair Styling", "Hair Cuts", "Hair Colour"].map((value) => {
                                         const labelId = `checkbox-list-label-${value}`;
 
@@ -156,7 +194,7 @@ export default function ProfessionalUserPage( props: Props){
                     {/* about section */}
                     <div className={ styles.aboutSection }>
                         <div>About: </div>
-                        <textarea rows={3} onChange={e => setAbout(e.target.value)}>
+                        <textarea rows={3} placeholder={about} onChange={e => setAbout(e.target.value)}>
 
                         </textarea>
                     </div>
