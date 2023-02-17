@@ -83,18 +83,11 @@ export default function Profile() {
               name="name"
               autoComplete="name"
               autoFocus
-            />
+            />            
 
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />             
+            <Typography variant="h6" padding="20px">
+              xxxxx@email.com
+            </Typography>                   
           
           </Box>
 
