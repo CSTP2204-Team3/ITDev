@@ -1,9 +1,5 @@
-import { UserProfile } from "@/lib/types/UserReg";
-
-
-import UserRegModel from "@/lib/types/UserReg";
-
-
+import type { regUser } from "@/lib/resources/Controller/types/userRegular";
+import UserRegModel from "@/lib/resources/DataModels/userReg";
 import Database from "@/lib/resources/DBAccessLayer/database";
 
 /**
@@ -12,7 +8,7 @@ import Database from "@/lib/resources/DBAccessLayer/database";
  * @returns QuestionModel from "@/resources/models/Question"
  */
 
-export async function createUser(user: UserProfile) {
+export async function createUser(user: regUser) {
     try {
         // This sets up the app's database
         await Database.setup();
@@ -59,11 +55,11 @@ export async function getUsers() {
 
 /**
  * @description Updates a user profile
- * @param {string} Name the user's full name to be updated
+ * @param {string} name the user's full name to be updated
  * @returns the updated user
  */
 
-export async function UpdateUser(fields: Partial<UserProfile>, email: string) {
+export async function UpdateUser(fields: Partial<regUser>, email: string) {
     try {
 
         // Retrieves the user by email
@@ -74,6 +70,7 @@ export async function UpdateUser(fields: Partial<UserProfile>, email: string) {
         fields, 
         {
             new: true,
+            name: true,
         });
 
         // Now we return the updated user
