@@ -8,6 +8,7 @@ const registerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     try {
       const { user: _regiUser } = req.body;
+      console.log(_regiUser)
       //Check if user exists
       await connectDB()
       const existingUser = await User.findOne({ email: _regiUser.email }).exec();
@@ -18,11 +19,8 @@ const registerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         throw new Error("Email already used");
       }
       //Password encrypted
-      const hashedPassword: string = await bcrypt.hash(
-        _regiUser.password,
-        10
-      );
-
+      const hashedPassword: string = await bcrypt.hashSync( _regiUser.password, 10 );
+      console.log("_regiUser.password", _regiUser.password, hashedPassword)
       console.log(hashedPassword)
 
       //Replace text password with encrypted password

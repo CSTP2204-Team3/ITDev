@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
 import { NextApiResponse } from "next";
+import User from "@/lib/schema/User";
 
 export default function register() {
   const router = useRouter()
@@ -15,7 +16,6 @@ export default function register() {
       onSubmit: async (values: any) => {
         // Do something with the form values
         try {
-          
           if(values.password !== password2){
             throw new Error("Password doesn't match!")
           }
