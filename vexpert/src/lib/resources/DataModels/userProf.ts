@@ -8,29 +8,12 @@ import { EMAIL_REGEX } from "@/lib/helpers/constants";
  */
 const userSchema = new Schema<UserProfProfile> ({
 
-    // This is the username of the user
-    userName: {
+    // This is the name of the user
+    name: {
         type: String,
-        min: [8, "Username should be at least 8 characters"],
-        max: [30, "Username should be max of 30 characters"],
-        required: [true, "Username is required"],
-        unique: true
-    },
-
-    // This is the firstname of the user
-    firstName: {
-        type: String,
-        min: [2, "Firstname should be at least 2 characters"],
-        max: [64, "Firstname should be max of 64 characters"],
-        required: [true, "Firstname is required"],
-    },
-
-    // This is the lastname of the user
-    lastName: {
-        type: String,
-        min: [2, "Lastname should be at least 2 characters"],
-        max: [64, "Lastname should be max of 64 characters"],
-        required: [true, "Lastname is required"],
+        min: [2, "Name should be at least 2 characters"],
+        max: [64, "Name should be max of 64 characters"],
+        required: [true, "Name is required"],
     },
 
     // This is the email of the user
@@ -47,7 +30,7 @@ const userSchema = new Schema<UserProfProfile> ({
     },
 
     // This is the image/logo of the user
-    image: {
+    profilePic: {
         type: String,
         required:[true, "Image is required"]
     },
