@@ -1,7 +1,58 @@
+<<<<<<< HEAD
 import Image from 'next/image'
 import TopNav from '@/Components/TopNav/topNav'
 
+=======
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import {signIn} from 'next-auth/react'
+import { useRouter } from 'next/router';
+import mongoose from 'mongoose';
+>>>>>>> origin/base
 export default function Login() {
+
+//Declare user
+const [user, setUser] = useState({
+  email: "",
+  password: ""
+})
+
+const router = useRouter()
+
+//Initialize error message
+const [errorMessage, setErrorMessage] = useState('')
+
+//Change state of logging user
+const onChangeHandler =(e: any)=>{
+  setUser({
+    ...user,
+    [e.target.name]: e.target.value
+    });
+    console.log("State", user)
+}
+
+
+const submitHandler = async (e:any)=>{
+  e.preventDefault()
+  try{
+    const data = await signIn('credentials', {
+      redirect: false,
+      email: user.email,
+      password: user.password
+    })
+
+    console.log(data)
+    if(data?.ok !== true){
+      throw new Error("Email or password is not correct!")
+    }
+    if(data?.ok === true){
+      router.push('/')
+    }
+  }catch(e: any){
+    setErrorMessage(e.message)
+  }
+}
+
   return (
     <>
     <TopNav/>
@@ -35,7 +86,7 @@ export default function Login() {
 
             <div className="mt-8">
               <div className="mt-6">
-                <form action="#" method="POST" className="space-y-6">
+                <form method="POST"  className="space-y-6">
                   <div>
                     <label
                       htmlFor="email"
@@ -48,6 +99,7 @@ export default function Login() {
                         id="email"
                         name="email"
                         type="email"
+                        onChange={(e)=>{onChangeHandler(e)}}
                         autoComplete="email"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
@@ -64,14 +116,16 @@ export default function Login() {
                     </label>
                     <div className="mt-1">
                       <input
-                        id="password"
                         name="password"
+                        id="password"
                         type="password"
+                        onChange={(e)=>{onChangeHandler(e)}}
                         autoComplete="current-password"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
+                    <p className='text-white'>{errorMessage}</p>
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -114,7 +168,9 @@ export default function Login() {
                   <div>
                     <button
                       type="submit"
+                      onClick={(e)=>submitHandler(e)}
                       className="flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-slate-100 shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                         
                     >
                       Sign in
                     </button>
