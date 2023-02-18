@@ -15,5 +15,3 @@ export interface UserProfile {
 	image: string;
 
 }
-
-export default UserProfile;
