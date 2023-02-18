@@ -2,32 +2,33 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import {signIn} from 'next-auth/react'
 import { useRouter } from 'next/router';
+import mongoose from 'mongoose';
 export default function Login() {
 
-
+//Declare user
 const [user, setUser] = useState({
   email: "",
   password: ""
 })
+
 const router = useRouter()
+
+//Initialize error message
 const [errorMessage, setErrorMessage] = useState('')
 
-// useEffect(()=>{
-  
-// }, [errorMessage])
+//Change state of logging user
 const onChangeHandler =(e: any)=>{
   setUser({
     ...user,
     [e.target.name]: e.target.value
     });
-    console.log(user)
+    console.log("State", user)
 }
 
 
 const submitHandler = async (e:any)=>{
   e.preventDefault()
   try{
-    
     const data = await signIn('credentials', {
       redirect: false,
       email: user.email,

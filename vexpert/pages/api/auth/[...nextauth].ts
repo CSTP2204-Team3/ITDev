@@ -1,10 +1,9 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-
-import { NextApiRequest } from "next";
-import { getItem } from "@/lib/resources/Controller/mongoose/user.RESTful";
-import User, { IUser } from "@/lib/resources/Controller/mongoose/User";
+import User from "@/lib/schema/User";
+import connectDB from "../connectDB";
+// import User from "@/lib/resources/Models/user";
 
 const authOptions: NextAuthOptions = {
   session: {
@@ -13,23 +12,25 @@ const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
+        await connectDB();
         const { email, password } = credentials;
-        console.log("Auth", email, password)
-        const user = await getItem({ email: email }, User);
-
-        if (!user) {
-          throw new Error("Invalid Email or password");
+      
+        // Find user by email (case-insensitive)
+        const user = await User.find({email: email});
+        if(user === null){
+          throw new Error('Cannot find user');
         }
-
-        const isPasswordMatched = await bcrypt.compare(
-          password,
-          user.password
-        );
+      
+        // Check if password from input matches with the one from db
+        const isPasswordMatched = await bcrypt.compare(password, user[0].password);
+        // Throw error when it doesn't
         if (!isPasswordMatched) {
-          throw new Error("Invalid Email or password");
+          throw new Error('Invalid email or password');
         }
+
+        // Return authorized user
         return user;
-      },
+      }     
     }),
   ],
 };

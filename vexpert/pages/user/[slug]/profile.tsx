@@ -2,6 +2,7 @@ import Cloudinary from "@/Components/Prof.Profile/Cloudinary";
 import BaseInfo from "@/Components/Prof.Profile/BaseInfo";
 import React from "react";
 import { Button, Container } from "@mui/material";
+import { useRouter } from "next/router";
 const professional = {
   avatar:
     "https://cdnph.upi.com/ph/st/th/4731670873231/2022/upi/f1be93041eb357ef457f08af370e8125/v1.2/RuPauls-Drag-Race-expands-to-Brazil-Germany-Mexico.jpg?lg=5&=1",
@@ -49,12 +50,14 @@ const data = [
 ];
 
 export default function profile() {
+  const router = useRouter();
+  const { slug } = router.query;
   return (
     <>
       <div className="flex flex-col h-screen justify-between">
         <Container maxWidth="lg bg-sky-500">
           <h1 className="text-2xl font-bold md:text-4xl font-bold">
-            Professional Profile
+            {slug}'s Professional Profile
           </h1>
           <div className="bg-white m-6 p-3 rounded-md ">
             <div className="">
