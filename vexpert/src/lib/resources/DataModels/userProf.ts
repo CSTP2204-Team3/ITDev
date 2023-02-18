@@ -1,12 +1,12 @@
 import { model, models, Model, Schema } from "mongoose";
-import type { UserProfProfile } from "@/lib/types/UserProf";
+import type { profUser } from "@/lib/resources/Controller/types/userProfessional";
 import { EMAIL_REGEX } from "@/lib/helpers/constants";
 
 /**
  * @description This is the user schema
  * The full description of each property is referenced in the User interface
  */
-const userSchema = new Schema<UserProfProfile> ({
+const profUserSchema = new Schema<profUser> ({
 
     // This is the name of the user
     name: {
@@ -23,21 +23,21 @@ const userSchema = new Schema<UserProfProfile> ({
             validator: function (v: string) {
                 return EMAIL_REGEX.test(v);
             },
-            message: props => `${props.value} is not a valid email!`
+            message: (props: { value: any; }) => `${props.value} is not a valid email!`
         },
         required: [true, "User email required"],
         unique: true,
     },
 
     // This is the image/logo of the user
-    profilePic: {
+    image: {
         type: String,
         required:[true, "Image is required"]
     },
 
     // This is where the reviews are contained or referenced
-    review: [{
-        type: String,
+    reviews: [{
+        type: [String],
         required: false,
         default: []
     }]
@@ -47,5 +47,5 @@ const userSchema = new Schema<UserProfProfile> ({
  * @description
  * The model for the Professional User collection.
  */
-const UserProfModel = models["userprofprofile"] as Model<UserProfProfile> || model<UserProfProfile>("userprofprofile", userSchema);
+const UserProfModel = models["userprofprofile"] as Model<profUser> || model<profUser>("profUser", profUserSchema);
 export default UserProfModel;
