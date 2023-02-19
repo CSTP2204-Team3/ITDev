@@ -24,10 +24,10 @@ const data = [
   },
 
   {
-    category: "hello",
+    category: "I cut hair",
     image:
       "https://i2.wp.com/therighthairstyles.com/wp-content/uploads/2021/09/1-the-ivy-league-mens-cut.jpg?resize=500%2C592",
-    title: "hello!",
+    title: "I help",
     occupation: "Coder",
     description: "I am a painter"
   },
@@ -35,15 +35,15 @@ const data = [
     category: "Yeet!",
     image:
       "https://i2.wp.com/therighthairstyles.com/wp-content/uploads/2021/09/1-the-ivy-league-mens-cut.jpg?resize=500%2C592",
-    title: "hello!",
+    title: "You need help",
     occupation: "Painter",
     description: "I am a painter"
   },
   {
-    category: "hello",
+    category: "I cut head",
     image:
       "https://i2.wp.com/therighthairstyles.com/wp-content/uploads/2021/09/1-the-ivy-league-mens-cut.jpg?resize=500%2C592",
-    title: "hello!",
+    title: "hello?",
     occupation: "Thief",
     description: "I am a painter"
   }

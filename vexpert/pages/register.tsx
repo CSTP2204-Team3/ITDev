@@ -6,6 +6,7 @@ import { NextApiResponse } from "next";
 import User from "@/lib/schema/User";
 
 export default function register() {
+
   const router = useRouter()
   const [password2, setPassword2] = useState('')
     const formik = useFormik({
