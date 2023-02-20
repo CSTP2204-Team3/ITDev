@@ -1,5 +1,11 @@
 import mongoose from "mongoose";
 
+export interface IUser {
+  email: string,
+  password: string
+}
+
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -8,8 +14,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
-    lowercase: true
+    required: true
   }
 });
 

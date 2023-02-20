@@ -32,7 +32,7 @@ const authOptions: NextAuthOptions = {
         const isPasswordMatched = await bcrypt.compare(password, user.password);
         console.log("match ?", isPasswordMatched);
         // Throw error when it doesn't
-        if (isPasswordMatched)
+        if (!isPasswordMatched)
         // if (password !== '123')
         {
           throw new Error('Invalid email or password');

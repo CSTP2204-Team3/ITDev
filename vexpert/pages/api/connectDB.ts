@@ -8,4 +8,5 @@ export default async function connectDB() {
     useUnifiedTopology: true,
   };
   await mongoose.connect(url, options);
+  console.log("DB is connected")
 }
