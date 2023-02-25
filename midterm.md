@@ -2,12 +2,12 @@
 
 ## What I did for midterm
 
-[Login UI and client code](./ITDev/pages/login.tsx)
+[Login UI and client code](https://github.com/CSTP2204-Team3/ITDev/blob/keisuke/task/midterm/pages/login.tsx)
 
-[Register UI and client code](../ITDev/pages/register.tsx)
+[Register UI and client code](https://github.com/CSTP2204-Team3/ITDev/blob/keisuke/task/midterm/pages/register.tsx)
 
-[Professional User page](../ITDev/pages/user/[slug]/profile.tsx)
+[Professional User page](https://github.com/CSTP2204-Team3/ITDev/blob/keisuke/task/midterm/pages/user/%5Bslug%5D/profile.tsx)
 
-[Login API](./pages/api/auth/[...nextauth].ts)
+[Login API](https://github.com/CSTP2204-Team3/ITDev/blob/keisuke/task/midterm/pages/api/auth/%5B...nextauth%5D.ts)
 
-[Register API](./pages/api/register.ts)
+[Register API](https://github.com/CSTP2204-Team3/ITDev/blob/keisuke/task/midterm/pages/api/register.ts)
