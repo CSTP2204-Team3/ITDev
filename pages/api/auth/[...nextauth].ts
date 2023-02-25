@@ -5,33 +5,43 @@ import User from "@/lib/schema/User";
 import connectDB from "../connectDB";
 // import User from "@/lib/resources/Models/user";
 
+interface Icredential{
+  email: string | undefined,
+  password: string | undefined
+}
+
 const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
-        await connectDB();
-        const { email, password } = credentials;
-      
+        // await connectDB();
+        const { email, password }: Icredential = credentials;
+
         // Find user by email (case-insensitive)
-        const user = await User.findOne({email: email});
-        if(user === null){
+        const user = await User.findOne({ email: email });
+        if (user === null) {
           throw new Error('Cannot find user');
         }
-      
+
         // Check if password from input matches with the one from db
-        console.log(password, user.password)
-        const isPasswordMatched = await bcrypt.compareSync(password, user.password);
+        console.log(`Comparing ${password} to ${user.password}`);
+        const isPasswordMatched = await bcrypt.compare(password, user.password);
+        console.log("match ?", isPasswordMatched);
         // Throw error when it doesn't
-        // if (!isPasswordMatched) {
-        //   throw new Error('Invalid email or password');
-        // }
+        if (!isPasswordMatched)
+        // if (password !== '123')
+        {
+          throw new Error('Invalid email or password');
+        }
 
         // Return authorized user
         return user;
-      }     
+      },
+      credentials: undefined
     }),
   ],
 };
